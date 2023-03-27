@@ -13,7 +13,7 @@ export const dateConvert = (date) => {
 export const timeInterval = (date1, date2) => {
   const date1InMs = date1.getTime(); 
   const date2InMs = date2.getTime(); 
-  const ms = Math.abs(date1 - date2);
+  const ms = Math.abs(date1InMs - date2InMs);
   const diffDays = Math.floor(ms / (1000 * 60 * 60 * 24)); 
   const restHour =  Math.abs(diffDays * (1000 * 60 * 60 * 24) - ms);
   const diffHour = Math.floor(restHour / (1000 * 60 * 60));
