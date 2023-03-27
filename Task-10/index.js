@@ -1,8 +1,8 @@
-const getCurrentDate = () => {
+export const getCurrentDate = () => {
   return new Date();
 }
 
-const dateConvert = (date) => {
+export const dateConvert = (date) => {
   if(typeof date === 'string') {
       return new Date(date);
   } else {
@@ -10,9 +10,9 @@ const dateConvert = (date) => {
   }
 }
 
-const timeInterval = () => {
-  const date1 = new Date("2022-02-25T10:41:51.000Z").getTime(); 
-  const date2 = new Date("2022-02-27T09:44:51.000Z").getTime(); 
+export const timeInterval = (date1, date2) => {
+  const date1InMs = date1.getTime(); 
+  const date2InMs = date2.getTime(); 
   const ms = Math.abs(date1 - date2);
   const diffDays = Math.floor(ms / (1000 * 60 * 60 * 24)); 
   const restHour =  Math.abs(diffDays * (1000 * 60 * 60 * 24) - ms);
@@ -22,10 +22,8 @@ const timeInterval = () => {
   return `diff date: ${diffDays} DD, ${diffHour} HH, ${diffMin} MM`;
 }
 
-console.log(timeInterval());
-
-module.exports = {
-  getCurrentDate,
-  dateConvert,
-  timeInterval,
-}
+// module.exports = {
+//   getCurrentDate,
+//   dateConvert,
+//   timeInterval,
+// }
