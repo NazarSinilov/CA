@@ -35,9 +35,12 @@ function render() {
       editInput.value = el.title;
 
       saveButton.addEventListener('click', () => {
+        if (!editInput.value.trim()) {
+          return null
+        }
         const editTask = {
           id: el.id,
-          title: editInput.value,
+          title: editInput.value.trim(),
         };
         tasks.splice(i, 1, editTask);
         
@@ -68,9 +71,12 @@ function render() {
 };
 
 const addTask = () => {
+  if (!inputAdd.value.trim()) {
+    return null
+  }
   tasks.unshift({
     id: new Date(),
-    title: inputAdd.value,
+    title: inputAdd.value.trim(),
   });
   localStorage.setItem('tasks' , JSON.stringify(tasks));
   render();
