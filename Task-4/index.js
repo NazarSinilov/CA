@@ -9,18 +9,19 @@ form.addEventListener("submit", (e) => {
   const email = formData.get('email').trim();
   const phoneNum = formData.get('phoneNum').trim();
 
-  if (fName && lName && doValidate(email, phoneNum)) {
+  if (fName.trim() && lName.trim() && doValidate(email, phoneNum)) {
     const success = document.createElement('h2');
     success.innerText = "Данные успешно введены!"
     success.style.color = 'green';
     document.body.appendChild(success);
+    setTimeout( () => success.remove() ,2000)
   } else {
     const error = document.createElement('h2');
     error.innerText = "Ошибка заполнения!"
     error.style.color = 'red';
     document.body.appendChild(error);
+    setTimeout( () => error.remove() ,2000)
   }
-
 });
 
 function validateEmail(email) { //Validates the email address
